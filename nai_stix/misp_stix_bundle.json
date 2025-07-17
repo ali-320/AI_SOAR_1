@@ -1,0 +1,17 @@
+{
+  "type": "bundle",
+  "id": "bundle--1234",
+  "objects": [
+    {
+      "type": "indicator",
+      "spec_version": "2.1",
+      "id": "indicator--abcd",
+      "pattern": "[ipv4-addr:value = '185.100.87.84']",
+      "pattern_type": "stix",
+      "valid_from": "2023-01-01T00:00:00Z",
+      "created": "2023-01-01T00:00:00Z",
+      "modified": "2023-01-01T00:00:00Z",
+      "labels": ["malicious-activity"]
+    }
+  ]
+}
