@@ -16,3 +16,6 @@ stix_object*. This will collect the fetched data which you can see in menu -> di
 
 Now to stop the nai_stix, just open cmd with the same path as before and type "docker compose down". This will shut down the containers.
 Also, if you want to run kibana on some other port, just opend the docker-compose.yml file and you can change the port numbers of kibana, elastic search and logstash in the portnumber section. I recommend that you don't do anything to logstash and elastic search and just change the port number of kibana for display.
+
+#Important point about ELK:
+If you delete the past data present in elastic search, it will not be shown on kibana as well.
