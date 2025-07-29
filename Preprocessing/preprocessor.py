@@ -51,25 +51,14 @@ def parse_beth_csv_row(row):
         args_details = {}
         warnings.warn(f"Malformed args literal in row: {args_raw}")
 
-    # Parse StackAddress (stringified list of integers)
-    stack_address_raw = row.get("StackAddress", "[]")
-    #Handling non-list inputs
-    if isinstance(stack_address_raw, str) and stack_address_raw.startswith("["):
-        try:
-            stack_address_data = ast.literal_eval(stack_address_raw)
-            stack_address_details = stack_address_data if isinstance(stack_address_data, list) else []
-        except (ValueError, SyntaxError):
-            stack_address_details = []
-            warnings.warn(f"Malformed StackAddress literal in row: {stack_address_raw}")
-    else:
-        #if not a proper list-like string, just wrap it in a list if it's numeric
-        try: 
-            val = int(float(stack_address_raw))
-            stack_address_details = [val]
-        except Exception:
-            stack_address_details = []
-            warnings.warn(f"Invalid StackAddress value: {stack_address_raw}, setting to empty list")
-    
+    # Parse stackAddresses (stringified list of integers)
+    stack_addresses_raw = row.get("stackAddresses", "[]")
+    try:
+        stack_addresses_data = ast.literal_eval(stack_addresses_raw)
+        stack_addresses_details = stack_addresses_data if isinstance(stack_addresses_data, list) else []
+    except (ValueError, SyntaxError):
+        stack_addresses_details = []
+        warnings.warn(f"Malformed stackAddresses literal in row: {stack_addresses_raw}")
 
     # Infer source_ip from hostName
     host_name = row.get("hostName", "unknown")
@@ -89,12 +78,12 @@ def parse_beth_csv_row(row):
             "processId": row.get("processId", ""),
             "parentProcessId": row.get("parentProcessId", ""),
             "userId": row.get("userId", ""),
-            "mountNameSpace": str(row.get("mountNameSpace", "")).strip(),
+            "mountNamespace": row.get("mountNamespace", ""),
             "processName": row.get("processName", ""),
             "hostName": row.get("hostName", ""),
             "eventId": row.get("eventId", ""),
             "eventName": row.get("eventName", ""),
-            "StackAddress": stack_address_details,
+            "stackAddresses": stack_addresses_details,
             "argsNum": row.get("argsNum", ""),
             "returnValue": row.get("returnValue", ""),
             "args": args_details,
@@ -143,7 +132,7 @@ def preprocess_beth_csv(input_file, output_file, chunksize=None):
 
 # Example usage
 if __name__ == "__main__":
-    input_file = "./archive/labelled_training_data.csv"  # Update with your CSV file path
-    output_file = "standardized_beth_data.json"
+    input_file = "./Preprocessing/archive/labelled_training_data.csv"  # Update with your CSV file path
+    output_file = "./Preprocessing/standardized_beth_data.json"
     standardized_data = preprocess_beth_csv(input_file, output_file, chunksize=10000)
     print(f"Processed {len(standardized_data)} log entries into {output_file}")
