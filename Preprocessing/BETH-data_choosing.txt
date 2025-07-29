@@ -1,0 +1,14 @@
+There are several existing cyber security datasets used in ML research, including 
+the KDD Cup 1999 Data (Hettich & Bay, 1999), the 1998 DARPA Intrusion Detection Evaluation Dataset (Labs, 1998; Lippmann et al., 2000), the ISCX IDS 2012 dataset (Shiravi et al., 2012), and NSL-KDD (Tavallaee et al., 2009), 
+which primarily removes duplicates from the KDD Cup 1999 Data.
+
+Each includes millions of records of realistic activity for enterprise applications, with labels for attacks or benign activity. 
+The KDD1999, NSLKDD, and ISCX datasets contain network traffic, while the DARPA1998 dataset also includes limited process calls. 
+
+However, these datasets are at best almost a decade old, and are collected on in-premise servers. 
+In contrast, BETH contains modern host activity and activity collected from cloud services, making it relevant for current real-world deployments. 
+In addition, some datasets include artificial user activity (Shiravi et al., 2012) while BETH contains only real activity. 
+BETH is also one of the few datasets to include both kernel-process and network logs, providing a holistic view of malicious behaviour.
+
+The URL to access the BETH dataset is given below:
+https://www.kaggle.com/datasets/katehighnam/beth-dataset

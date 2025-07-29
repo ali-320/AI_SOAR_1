@@ -1,0 +1,33 @@
+Test #1:
+I ran the preprocessor code on one of the original IP files,
+and found out that the code was not picking up the 
+args parameter. It was not available in the resulting json file.
+Additionally, the code is mapping the eventIDs to their general
+category. The dictionary for this mapping is in the code itself.
+This is not very scalable, but since this is a prototype
+creation, I can work with that. But I need to make sure that all
+eventIDs are mapped in the dictionary.
+
+Test #2:
+I got inspired from the SELECT DISTINCT command in SQL, and 
+created a nameGetter.py file that will get unique names from
+each column. I ran this on the eventNames, to get all the event
+names. Then I gave those to grok and told him to create a
+generalized dictionary.
+
+Test #3:
+Things finally seem to work out. Now the dictionary mapping is
+working properly, and the args parameter is in the resulting
+set as well. For the args parameter, I gave the code to gpt,
+and he told me that it was treating args as json and not a
+string, even though all columns were converted into string
+at the start of the code. This helped to resolve the issue.
+Additionally, when I was looking for a new dataset to test
+this code on, I realized that some datasets are already present
+for training, testing and validation, by the ratio of:
+60:20:20.
+
+Test #4:
+I tried to preprocess the training dataset but there are two new
+columns named mountNameSpace and StackAddress, which are not 
+appearing in the resulting dataset.
