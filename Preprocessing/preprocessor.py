@@ -8,39 +8,53 @@ def parse_beth_csv_row(row):
     """Parse a single BETH CSV row into standardized JSON format."""
     # Comprehensive mapping for all distinct eventName values
     threat_type_mapping = {
-        "accept": "Network Activity",
-        "accept4": "Network Activity",
-        "access": "File Access",
-        "bind": "Network Activity",
-        "cap_capable": "Privilege Operation",
-        "clone": "Process Creation",
-        "close": "File Operation",
-        "connect": "Network Connection",
-        "dup": "File Descriptor Operation",
-        "dup2": "File Descriptor Operation",
-        "dup3": "File Descriptor Operation",
-        "execve": "Command Execution",
-        "fchmod": "File Permission Change",
-        "fstat": "File Metadata Access",
-        "getdents64": "Directory Listing",
-        "getsockname": "Network Activity",
-        "kill": "Process Termination",
-        "lstat": "File Metadata Access",
-        "openat": "File Access",
-        "prctl": "Process Control",
-        "sched_process_exit": "Process Termination",
-        "security_bprm_check": "Security Check",
-        "security_file_open": "File Access",
-        "security_inode_unlink": "File Deletion",
-        "setgid": "Privilege Operation",
-        "setuid": "Privilege Operation",
-        "socket": "Network Activity",
-        "stat": "File Metadata Access",
-        "symlink": "File Operation",
-        "umount": "Filesystem Operation",
-        "unlink": "File Deletion",
-        "unlinkat": "File Deletion"
-    }
+    "accept": "Network Activity",
+    "accept4": "Network Activity",
+    "access": "File Access",
+    "bind": "Network Activity",
+    "bpf": "Network Activity",
+    "cap_capable": "Privilege Operation",
+    "chmod": "File Permission Change",
+    "clone": "Process Creation",
+    "close": "File Operation",
+    "connect": "Network Connection",
+    "dup": "File Descriptor Operation",
+    "dup2": "File Descriptor Operation",
+    "dup3": "File Descriptor Operation",
+    "execve": "Command Execution",
+    "faccessat": "File Access",
+    "fchmod": "File Permission Change",
+    "fchownat": "File Permission Change",
+    "fstat": "File Metadata Access",
+    "getdents64": "Directory Listing",
+    "getsockname": "Network Activity",
+    "kill": "Process Termination",
+    "lchown": "File Permission Change",
+    "listen": "Network Activity",
+    "lstat": "File Metadata Access",
+    "memfd_create": "File Operation",
+    "mknod": "File Operation",
+    "mount": "Filesystem Operation",
+    "open": "File Access",
+    "openat": "File Access",
+    "prctl": "Process Control",
+    "sched_process_exit": "Process Termination",
+    "security_bprm_check": "Security Check",
+    "security_file_open": "File Access",
+    "security_inode_unlink": "File Deletion",
+    "setfsgid": "Privilege Operation",
+    "setfsuid": "Privilege Operation",
+    "setgid": "Privilege Operation",
+    "setregid": "Privilege Operation",
+    "setreuid": "Privilege Operation",
+    "setuid": "Privilege Operation",
+    "socket": "Network Activity",
+    "stat": "File Metadata Access",
+    "symlink": "File Operation",
+    "umount": "Filesystem Operation",
+    "unlink": "File Deletion",
+    "unlinkat": "File Deletion"
+}
     
     # Parse args JSON string
     args_raw = row.get("args", "[]")
@@ -133,6 +147,6 @@ def preprocess_beth_csv(input_file, output_file, chunksize=None):
 # Example usage
 if __name__ == "__main__":
     input_file = "./Preprocessing/archive/labelled_training_data.csv"  # Update with your CSV file path
-    output_file = "./Preprocessing/standardized_beth_data.json"
+    output_file = "./Preprocessing/standardized_training_data.json"
     standardized_data = preprocess_beth_csv(input_file, output_file, chunksize=10000)
     print(f"Processed {len(standardized_data)} log entries into {output_file}")

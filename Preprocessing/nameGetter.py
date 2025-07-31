@@ -16,7 +16,7 @@ def extract_distinct_event_names(input_file):
         print(event_name)
     
     # Save to a file for reference
-    with open("distinct_event_names.txt", "w") as f:
+    with open("./Preprocessing/distinct_validation_event_names.txt", "w") as f:
         f.write("Distinct Event Names:\n")
         for event_name in unique_event_names:
             f.write(f"{event_name}\n")
@@ -25,6 +25,6 @@ def extract_distinct_event_names(input_file):
 
 # Example usage
 if __name__ == "__main__":
-    input_file = "./archive/labelled_training_data.csv"  # Update with your CSV file path
+    input_file = "./Preprocessing/archive/labelled_validation_data.csv"  # Update with your CSV file path
     unique_events = extract_distinct_event_names(input_file)
     print(f"\nTotal unique event names: {len(unique_events)}")

@@ -3,3 +3,8 @@ Preprocessing/archive/*.csv
 Preprocessing/distinct_event_names.txt
 Preprocessing/distinct_host_names.txt
 Preprocessing/distinct_sus_names.txt
+Preprocessing/distinct_testing_event_names.txt
+Preprocessing/distinct_validation_event_names.txt
+Preprocessing/standardized_testing_data.json
+Preprocessing/standardized_training_data.json
+Preprocessing/standardized_validation_data.json
