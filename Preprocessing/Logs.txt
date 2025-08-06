@@ -59,7 +59,7 @@ and by which it ended. This can help in the future.
 Currently, this implementation is present on GROK of the mhali... account. To access it, 
 go to the AI-driven SOAR System Model chat and ask about timestamp_analyzer.py.
 
-Test #7:
+Test #7: (6 Aug 2025)
 I applied TF-IDF.py on the generated .json files from test #6.
 What this is doing is that it takes the fields:
 threat_type, processName, eventName, and the args list.
@@ -67,4 +67,16 @@ Additionally, it takes argsNum, and returnValue from the .json files
 and vectorizes them in the Vectorized_tfidf folder. Currently, it only takes
 500 most frequest words from the .json files. Currently, this is defined
 in the apply_tfidf function of TF-IDF.py. This is only for testing the model currenlty,
-if it is not sufficient, we will increase the features later. 
+if it is not sufficient, we will increase the features later. If you ever need to know,
+ the possible solution for the max_feature, go to gpt chat: Preprocessing issues, and ask
+ it of vectorizing solutions. Hope to implement an AI to decide for this in the future.
+
+ Insights: The result of test #7 will be used in test #8 to create profiles.
+
+ Test #8: (6 Aug 2025)
+ event_profiler.py has been run. This took the vectorized data, and got profiles from them.
+ Then it took the .json original files and added profiles on them. These profiles are used 
+ to give an upper classification to data. Currently the number of profiles is 5. This is default 
+ for a small dataset, however if you need to change it in the future, go to gpt chat: Preprocessing issues.
+ And ask it about Profiling solutions. We might even train a AI model to do this on it's own in the future.
+ The result of test #8 is stored in the AI_SOAR_1/Preprocessing/Profiled folder.
