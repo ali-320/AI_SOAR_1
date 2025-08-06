@@ -8,3 +8,5 @@ Preprocessing/distinct_validation_event_names.txt
 Preprocessing/standardized_testing_data.json
 Preprocessing/standardized_training_data.json
 Preprocessing/standardized_validation_data.json
+Preprocessing/Vectorized_tfidf/*.npy
+Preprocessing/distinct_testing_returnValues.txt
