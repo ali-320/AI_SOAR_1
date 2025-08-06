@@ -46,3 +46,16 @@ and validation datasets also need to be converted into the .json format.
 Now I am going to change the file name, in the preprocessor.py script
 at line 135, in the input variable. Hope it goes well! Additionally, I am 
 going to rename the output file accordingly as well.
+
+Insights: I am currently assuming the suspicious attributes mentioned in test #5, and discussed in Read_me.txt
+are currently required for training. Additionally, during test#6, I have doubts about the timestamp field.
+What is it showing? It actually shows that when the data collection was started at time 0, at what time did this 
+attack occured. For example 129.07 shows that after 129.07 secs, of collecting data, the mentioned attack occured.
+Now, I can get following benefits from this field:
+1. Model events chronologically, which is essentail for LSTM model of the trio DL.
+2. Find attack duration, by grouping attacks on the basis of process, event IDs, 
+this way, I can find out the start and end of the attack, by which command it started, 
+and by which it ended. This can help in the future.
+Currently, this implementation is present on GROK of the mhali... account. To access it, 
+go to the AI-driven SOAR System Model chat and ask about timestamp_analyzer.py.
+
