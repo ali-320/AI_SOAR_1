@@ -116,3 +116,7 @@ writing at the end of the file.
 Test #11 (for soluiont 1):
 The solution was successfull. Now, we have the data for the training of all three models.
 Remember that you can use the chunk solution in the other two prepare functions as well.
+
+Test #12:
+I am going to check the shape of the .pnpy files for the training of all three models,
+through Check_shape.py in DL_data

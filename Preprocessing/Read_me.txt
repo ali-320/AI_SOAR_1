@@ -19,3 +19,22 @@ The attributes that I am suspicious about are:
 -event_id
 -mountNameSpace
 -StackAddress
+
+To run the complete the preprocessing module, do the following prompts:
+1. Get the data-set from the link mentioned in BETH-data_choosing.txt.
+This will create an archive folder in your directory.
+
+2. Now run the proprocessor.py file, this will convert the training,
+testing, validation datasets into json format. Note that, you may 
+have to change the names of the input file.
+
+3. Now run the TF-IDF.py file. This will create the .npy files in Vectorized_tfidf foder, for the training 
+of the models. Note that currently TF-IDF is only going to take the 500 features out of each dataset.
+You may need to change it in the future.
+
+4. Now run the event_profiler.py file. Check from gpt, that this is going to guess the profiles
+from the previous.npy files, then add these profiles in the .json files. The resulting files 
+will be stored in the profiled folder.
+
+5. Now run the data_prepare.py file. This will create the dataset for the training of the DL models
+in the DL_Data folder.
