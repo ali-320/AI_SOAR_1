@@ -80,3 +80,39 @@ if it is not sufficient, we will increase the features later. If you ever need t
  for a small dataset, however if you need to change it in the future, go to gpt chat: Preprocessing issues.
  And ask it about Profiling solutions. We might even train a AI model to do this on it's own in the future.
  The result of test #8 is stored in the AI_SOAR_1/Preprocessing/Profiled folder.
+
+ Insights: Now, that profiling has been completed, I am going to used the profiled data and the vecotorized data
+ to train the DL trio. Since each model in the DL trio requires different types of data. I have created
+ a data_prepare.py file, which will take the profling and vectorized data and create the desired type of 
+ data for each model. This result will be stoerd in DL_Data folder. Insided there are three folders for 
+ each of the DL model.
+
+ Test #9: (7 Aug 2025): USIND data_prepare.py
+ The data_prepare.py is successfully converting data for FNN and CNN models, but it gets stucked when working of 
+ LSTM. I asked gpt and found out that the following line, in the prepare_lstm_data() function:
+ 
+ sorted_indices = [data.index(entry) for entry in data_sorted]
+
+ runs for each line for a single object. If we have n lines in a object and n objects that it is creating a 
+ time complexity of n^2. I ran it for almost 30 mins, and there was still not result. Now this line has 
+ been replaced by the following line:
+
+ # Create a map of entry ID to index in the original data list
+id_map = {id(entry): idx for idx, entry in enumerate(data)}
+
+# Use the map to quickly find each entry’s index
+sorted_indices = [id_map[id(entry)] for entry in data_sorted]
+
+Now, it is indexing the objects, which will hopefully work.
+
+Test #10 (7 Aug 2025): Testing the new line in data_prepare.py
+The line did worked well, but now we have another error. For the training data, the function generated 
+a ver huge array, of the size: 28.5 GB. This could, not be returned by the function.
+
+Possible solution:
+1. Return the value from function in the form of chunks, and save them into the original file, by
+writing at the end of the file.
+
+Test #11 (for soluiont 1):
+The solution was successfull. Now, we have the data for the training of all three models.
+Remember that you can use the chunk solution in the other two prepare functions as well.

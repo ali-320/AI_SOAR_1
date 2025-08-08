@@ -1,0 +1,1 @@
+Here we have the data for the training of the LSTM model.
