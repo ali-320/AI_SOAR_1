@@ -107,7 +107,7 @@ Now, it is indexing the objects, which will hopefully work.
 
 Test #10 (7 Aug 2025): Testing the new line in data_prepare.py
 The line did worked well, but now we have another error. For the training data, the function generated 
-a ver huge array, of the size: 28.5 GB. This could, not be returned by the function.
+a very huge array, of the size: 28.5 GB. This could, not be returned by the function.
 
 Possible solution:
 1. Return the value from function in the form of chunks, and save them into the original file, by
