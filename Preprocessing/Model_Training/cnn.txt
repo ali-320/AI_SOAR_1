@@ -1,0 +1,3 @@
+Uses 1D convolutions to process sequences, followed by pooling and dense layers.
+The trainng is similar to FNN, with 10 epochs and binary classification.
+It also Tests and saves the model.

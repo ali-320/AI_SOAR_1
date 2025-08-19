@@ -1,0 +1,1 @@
+It takes the result of all three models on the test data, and takes an average of their predictions.

@@ -1,0 +1,3 @@
+The mdoel Uses an LSTM layer to capture temporal dependencies, followed by dense layers.
+In training it is Similar to CNN, with 10 epochs.
+It also Tests and saves the model.

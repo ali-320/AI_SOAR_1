@@ -120,3 +120,11 @@ Remember that you can use the chunk solution in the other two prepare functions 
 Test #12:
 I am going to check the shape of the .pnpy files for the training of all three models,
 through Check_shape.py in DL_data
+
+Test #13:
+About to run the train_fnn.py file, to check the training of the fnn model, but can't the system doens't has tensor flow
+and I am about to install it now.
+
+Test #14:
+The models have been trained but their accuracy is very low. I believe that it has something to do with the preprocessing 
+part of the models. The divided ratio and everything else.

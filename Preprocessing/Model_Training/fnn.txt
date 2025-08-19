@@ -1,0 +1,3 @@
+The train_fnn is training a simple FNN model with two hidden layers (128 and 64 units)  and dropout to prevent overfitting.
+It uses binary cross-entropy for the evil label, training for 10 epochs.
+In the end, it tests itself on the test set and save the model.
