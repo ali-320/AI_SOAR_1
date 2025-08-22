@@ -38,3 +38,12 @@ will be stored in the profiled folder.
 
 5. Now run the data_prepare.py file. This will create the dataset for the training of the DL models
 in the DL_Data folder.
+
+6. Workflow of everything:
+    1. Download the Beth dataset.
+    2. Run preprocessor.py on the training, testing, and validation datasets.
+    3. Run TF-IDF.py on the outputs of the previous python file.
+    4. Now run event_profiler.py on the output of previous files.
+    5. Now run data_prepare.py on the output of previous files.
+    6. This will generate data on which models can operate.
+In order for just testing, only do the above tasks for test data.
